@@ -1,0 +1,32 @@
+{
+    "app": {
+    },
+    "wizard": [
+      {
+          "step_title":"configure sentry",
+          "items":[
+              {
+                  "type":"textfield",
+                  "desc":"custom host",
+                  "subitems":[
+                      {
+                          "key":"app.www.environment.SENTRY_URL_PREFIX",
+                          "desc":"the custom host",
+                          "validator":{
+                              "minLength":2,
+                              "maxLength":30
+                          }
+                      }
+                  ]
+              }
+          ]
+      }
+  ],
+    "env": {
+      "www": {
+        "environment": {
+          "SENTRY_URL_PREFIX": "custom.host"
+        }
+      }
+    }
+}

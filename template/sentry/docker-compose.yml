@@ -1,0 +1,36 @@
+data:
+  # image: tianon/true:latest (docker/fig#919)
+  image: busybox:latest
+  volumes:
+    - /data
+    - /var/lib/postgresql/data
+  entrypoint: /bin/echo
+
+redis:
+  image: redis:2.8
+  volumes_from:
+    - data
+  restart: always
+
+postgres:
+  image: postgres:9.4
+  volumes_from:
+    - data
+  restart: always
+
+www:
+  image: dafire/sentry
+  ports:
+    - "8080"
+  links:
+    - postgres
+    - redis
+  volumes_from:
+    - data
+  entrypoint: sentry
+  command: start --noinput
+  environment:
+    SECRET_KEY: nosecret
+    SERVER_EMAIL: server@example.com
+    SENTRY_URL_PREFIX: http://localhost:8080/
+  restart: always

@@ -499,4 +499,21 @@
 			<![CDATA[{}]]>
 		</inspect>
 	</ctstation>
+		<ctstation>
+		<name>Sentry</name>
+		<internalName>sentry</internalName>
+		<version>8.2.2</version>
+		<arch>amd64</arch>
+		<category>application</category>
+		<imageType>app</imageType>
+		<repository>dockerhub</repository>
+		<icon>http://download.qnap.com/QPKG/images/QPKG/container/app_registry.png</icon>
+		<location>https://hub.docker.com/r/dafire/sentry/</location>
+		<description>
+			<![CDATA[Sentry]]>
+		</description>
+		<inspect>
+			<![CDATA[{}]]>
+		</inspect>
+	</ctstation>
 </plugins>
